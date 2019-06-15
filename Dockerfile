@@ -16,7 +16,8 @@ RUN git clone https://github.com/OpenSprinkler/OpenSprinkler-Firmware.git &&\
   cd OpenSprinkler-Firmware &&\
   sudo ./build.sh ospi
 
-RUN apt-get remove -y --purge ${BOOTSTRAP_PKGS} &&\
+RUN export SUDO_FORCE_REMOVE=yes &&\
+  apt-get remove -y --purge ${BOOTSTRAP_PKGS} &&\
   apt-get autoremove -y &&\
   apt-get clean
 
